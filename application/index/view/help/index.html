@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>帮助中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--国产浏览器的兼容-->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="__STATIC__/css/dfv_web.css"/>
+    <script type="text/javascript" src="__STATIC__/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/ReturnTop.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/dfv_web.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="homePage">
+    <div class="homePage_box">
+        <!--头部导航-->
+        {include file="public/header"}
+        <!--内容-->
+        <div id="help_center">
+            <!--1-->
+            <div class="head_advert">
+                <div class="advert_box"></div>
+            </div>
+            <!--2-->
+            <div class="hotSearch">
+                <div class="Search_box">
+                    <div class="related_content">
+                        <div class="search_title">
+                            <p>
+                                <span>常见问题</span>
+                            </p>
+                        </div>
+                        <div class="option_con">
+                            <ul>
+                                {volist name='help' id='val'}
+                                {if $val.label!=''}
+                                <li><a href="{:url('help_details/index')}?id={$val.id}#help_detail">{$val.label}</a></li>
+                                {/if}
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--3-->
+            <div id="problem" class="problem">
+                <div class="problem_content">
+                    <div class="titleBox" id="titleBox_one">
+                        <h3>
+                            <i class="fa fa-star-o"></i>&nbsp;疑问解答&nbsp;<i class="fa fa-star-o"></i>
+                        </h3>
+                        <p>Interrogative&nbsp;&nbsp;answers</p>
+								<span>
+									<img src="__STATIC__/img/down.png" />
+								</span>
+                    </div>
+                    <ul class="help_content">
+                        {volist name='help_type' id='val'}
+                            <li>
+                                <p class="help_top">
+                                    <span>
+                                        <img src="__STATIC__/uploads/{$val.img}"/>
+                                    </span>
+                                    <span>{$val.name}</span>
+                                </p>
+                                {volist name='help' id='va'}
+                                {if $va.type==$val.id}
+                                    <p class="help_bottom">
+                                        <a href="{:url('help_details/index')}?id={$va.id}#help_detail">
+                                            <span>&sdot;</span>
+                                            <span>{$va.name}</span>
+                                        </a>
+                                    </p>
+                                {/if}
+                                {/volist}
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <!--4-->
+            <div id="res_down" class="Res_down">
+                <div class="downloadBox">
+                    <div class="titleBox" id="titleBox">
+                        <h3>
+                            <i class="fa fa-star-o"></i>&nbsp;资源下载&nbsp;<i class="fa fa-star-o"></i>
+                        </h3>
+                        <p>Resource&nbsp;&nbsp;download</p>
+								<span>
+									<img src="__STATIC__/img/down.png" />
+								</span>
+                    </div>
+
+                    <div class="ResourcesBox">
+                        <div class="operate">
+                            <ul id="J_navlist">
+                                {volist name='downloads' id='val'}
+                                <li>
+                                    <h4>{$val.title}</h4>
+                                    <div class="list-item">
+                                        <p>
+                                            <a href="{$val.url}" target="_blank">
+                                                百度网盘: {$val.url}
+                                            </a>
+                                        </p>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--5-->
+            <div class="dot" id="dot">
+                <div class="titleBox" id="titleBox">
+                    <h3>
+                        <i class="fa fa-star-o"></i>&nbsp;服务网点&nbsp;<i class="fa fa-star-o"></i>
+                    </h3>
+                    <p>SERVICE&nbsp;&nbsp;NETWORK</p>
+							<span>
+								<img src="__STATIC__/img/down.png" />
+							</span>
+                </div>
+                <div class="dot_data">
+                    <div class="data_display">
+                        <div class="dataBox">
+                            <dl>
+                                <dt>
+                                <p align="absmiddle">
+                                    <span><i class="fa fa-map-marker"></i></span>
+                                    <span>省级代理</span>
+                                </p>
+                                </dt>
+                                <dd>
+                                    <ul>
+                                        {volist name='shopsites' id='val'}
+                                        <li>
+                                            <p>{$val.name}</p>
+                                            <p>
+                                                <span>{$val.address}</span>
+                                                <span>联系电话：{$val.tel}</span>
+                                            </p>
+                                        </li>
+                                        {/volist}
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--底部-->
+        {include file="public/footer"}
+    </div>
+</div>
+<!--返回顶部-->
+<div id="rocket-to-top">
+    <div class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+<script type="text/javascript">
+    //资源下载调用方法
+    navList(12);
+</script>
+</body>
+</html>

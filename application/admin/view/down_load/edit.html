@@ -1,0 +1,18 @@
+<meta charset="utf-8" />
+<link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
+<form action="{:url('down_load/edit')}?id={$down_load.id}" method="post">
+    <table style="width: 34%">
+        <tr>
+            <td>新导航名称：</td>
+            <td><input value={$down_load.title} type="text" name="title" id="id_nav" required /></td>
+        </tr>
+        <tr>
+            <td>url：</td>
+            <td><input value={$down_load.url} type="text" name="url" /></td>
+        </tr>
+
+        <tr>
+            <td class="tijiao"><input type="submit" value="提交" /><input type="reset" value="重置" /></td>
+        </tr>
+    </table>
+</form>

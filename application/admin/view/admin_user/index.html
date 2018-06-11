@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>用	户	列	表</h3>
+<table cellspacing="1">
+	<tr>
+		<th>用户ID</th>
+		<th>用户名</th>
+		<th>用户分类</th>
+		<th>操作</th>
+	</tr>
+
+	{volist name="prigou" id="value"}
+		<tr>
+			<td>{$value.id}</td>
+			<td>{$value.name}</td>
+			<td>{$value.p_type}</td>
+			<td>{if $value.p_type=='超级管理员'}无法修改
+				{else /}<a href="{:url('edituser')}?id=<?php echo $value['id'];?>&val=balcoon">修改</a>
+						<a href="{:url('deluser')}?id=<?php echo $value['id'];?>">删除</a>
+				{/if}
+			</td>
+		</tr>
+	{/volist}
+</table>
+<div class="clear"></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>新闻中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--国产浏览器的兼容-->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="__STATIC__/css/magic.min.css"/>
+    <link type="text/css" rel="stylesheet" href="__STATIC__/css/dfv_web.css"/>
+    <script type="text/javascript" src="__STATIC__/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/jquery.hoverdir.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/jquery.lineProgressbar.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/ReturnTop.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/dfv_web.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="homePage">
+    <div class="homePage_box">
+        <!--头部导航-->
+        {include file="public/header"}
+        <!--内容-->
+        <div class="news">
+            <div class="news_content">
+                <!--1-->
+                <div class="top_title_img">
+                    <div class="bg">
+                    </div>
+                </div>
+                <!--2-->
+                <div class="inforBox" id="news">
+                    <div class="section_content">
+                        <div class="left_nav">
+                            <div class="menu">
+                                <div class="topTitle">
+                                    <dl>
+                                        <dt>N</dt>
+                                        <dd>
+                                            <span>新闻中心</span>
+                                            <span>EWS&nbsp;&nbsp;CENTER</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <ul>
+                                    {volist name='news_type' id='va'}
+                                    <li{if $va.id==$new_type} class='active_on'{/if}><a href="{:url('news/index')}?new_type={$va.id}">{$va.name}</a></li>
+                                    {/volist}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right_content">
+                            <div class="summaryTop">
+                                {volist name='news_type' id='va'}
+                                {if $va.id==$new_type}<p>{$va.name}</p>{/if}
+                                {/volist}
+                            </div>
+                            <div class="summaryCon">
+                                <ul class="ulBox">
+                                    {volist name='news' id='val'}
+                                    <li>
+                                        <span>{$val.title}</span>
+                                        <span><?php echo substr($val['time'],0,10);?></span>
+                                        <div class="clearfix"></div>
+                                        <p class="article">{$val.intro}</p>
+                                        <a href="{:url('new_details/index')}?id={$val.id}&&new_type={$val.nid}" target="_parent">查看详情&nbsp;>></a>
+                                    </li>
+                                    {/volist}
+                                </ul>
+                                <!--分页-->
+                                {$page}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <!--底部-->
+        {include file="public/footer"}
+    </div>
+</div>
+
+<!--返回顶部-->
+<div id="rocket-to-top">
+    <div class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+</body>
+</html>

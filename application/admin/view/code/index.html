@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>二	维	码	列	表</h3>
+<table cellspacing="1">
+	<tr>
+		<th>id</th>
+		<th>名称</th>
+		<th>图片</th>
+		<th>图片路径</th>
+		<th>操作</th>
+	</tr>
+	{volist name="code" id="va"}
+	<tr>
+		<td>{$va.id}</td>
+		<td>{$va.name}</td>
+		<td><img src="__STATIC__/uploads/{$va.img}"></td>
+		<td>{$va.img}</td>
+		<td>
+			<a href="{:url('code/delcode')}?id={$va.id}">删除</a>
+		</td>
+	</tr>
+	{/volist}
+</table>
+	<div class="page">
+		{$page}
+	</div>
+</body>
+</html>

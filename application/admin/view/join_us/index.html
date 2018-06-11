@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>   申  请	列	表</h3>
+<table cellspacing="1">
+    <tr>
+        <th>姓名</th>
+        <th>电话</th>
+        <th>邮箱</th>
+        <th>留言</th>
+        <th>申请状态</th>
+        <th>操作</th>
+    </tr>
+    {volist name="joinlist" id="va"}
+    <tr>
+        <td>{$va.name}</td>
+        <td>{$va.tel}</td>
+        <td>{$va.email}</td>
+        <td>{$va.message}</td>
+        <td>
+            {switch name="$va.status" }
+                {case value="1"}审核中{/case}
+                {case value="2"}己同意{/case}
+                {case value="3"}己拒绝{/case}
+            {/switch}
+        </td>
+
+        {if condition="$va.status == 1"}
+        <td>
+            <a href="{:url('join_us/agree')}?id={$va.id}">同意</a>
+            <a href="{:url('join_us/refuse')}?id={$va.id}">拒绝</a>
+        </td>
+        {else/}
+        <td>无法操作</td>
+        {/if}
+    </tr>
+    {/volist}
+</table>
+<div class="page">
+    {$page}
+</div>
+</body>
+</html>

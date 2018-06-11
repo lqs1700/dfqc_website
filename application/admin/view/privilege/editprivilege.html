@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改权限</title>
+	<link href="__STATIC__/css/editPrivilege.css" rel="stylesheet" type="text/css" />
+<body>
+
+<form action="{:url('editprivilege')}?idd=<?php echo $num['id'];?>" method="post">
+	<table style="width: 50%;">
+		<tr>
+			<td>权限组名：</td>	
+			<td>
+				<input type="text" name="pri_grou" value="<?php echo $num['pri_name'];?>" >
+			</td>
+
+		</tr>
+	<?php foreach($fath as $val):?>
+		<tr>	
+			<td><input type="checkbox" name="fath[]" <?php if(in_array($val['id'],json_decode($num['privilege']))){echo "checked='checked'";}?> value="<?php echo $val['id']?>" /><?php echo $val['name'];?></td>
+
+		<?php foreach($sub as $valu):?>
+		<?php if($valu['cid']==$val['id']):?>
+			<td><input type="checkbox" name="fath[]" <?php if(in_array($valu['id'],json_decode($num['privilege']))){echo "checked='checked'";}?> value="<?php echo $valu['id'];?>" /><?php echo $valu['name'];?></td>
+		<?php endif;?>
+		<?php endforeach;?>
+
+		</tr>
+	<?php endforeach;?>
+		<tr>
+			<td><input id="allChecked" class="allChk" type="button" name="sel" value="全选/取消" onclick="selectAllDels()"/></td>
+		</tr>	
+		<tr>
+			<td class="tijiao"><input type="submit" value="修改" /><input type="reset" value="取消" /></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+<script src="__STATIC__/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+/*全选或取消全选*/
+function selectAllDels(){
+  var allWp=document.getElementsByName("fath[]");
+  var selOrUnsel=false;
+  for(var i=0; i<allWp.length;i++){
+    if(allWp[i].checked){
+      selOrUnsel=true;
+      break;
+    }
+  }
+  if(selOrUnsel){
+    allUnchk(allWp);
+  }else{
+    allchk(allWp);
+  }
+}
+function allchk(allWp){
+  for(var i=0; i<allWp.length;i++ ){
+    allWp[i].checked=true;
+  }
+}
+function allUnchk(allWp){
+  for(var i=0; i<allWp.length;i++){
+    allWp[i].checked=false;
+  }
+}
+</script>

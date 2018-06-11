@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>帮 助 问 题 列 表</h3>
+<table cellspacing="1">
+	<tr>
+		<th>id</th>
+		<th>名称</th>
+		<th>类型</th>
+		<th>操作</th>
+	</tr>
+		{volist name="help" id="va"}
+	<tr>
+		<td>{$va.id}</td>
+		<td>{$va.name}</td>
+		<td>{$va.h_type}</td>
+		<td><a href="{:url('help_center/edit')}?id={$va.id}">修改</a> <a href="{:url('help_center/del')}?id={$va.id}">删除</a></td>
+	</tr>
+	{/volist}
+</table>
+	<div class="page">
+		{$page}
+	</div>
+</body>
+</html>

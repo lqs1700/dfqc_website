@@ -1,0 +1,75 @@
+<div class="footer">
+    <div class="f_content">
+        <div class="one_block_content">
+            <div class="contactUs">
+                <ul>
+                    <li>
+                        <span>
+                            <i class="fa fa-map-marker"></i>
+                        </span>
+                        <div class="infBox">
+                            <h4>公司地址</h4>
+                            <p>{$info.address1}</p>
+                            <p>{$info.address2}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>
+                            <i class="fa fa-volume-control-phone"></i>
+                        </span>
+                        <div class="infBox">
+                            <h4>联系方式</h4>
+                            <p>	深圳: {$info.tel1}</p>
+                            <p>	安徽: {$info.tel2}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>
+                            <i class="fa fa-internet-explorer"></i>
+                        </span>
+                        <div class="infBox">
+                            <h4>店铺网址</h4>
+                            <p>
+                                <i>京东:</i>
+                                <i>
+                                    <a href="{$info.web_jingdong}" target="_blank">
+                                        {$info.web_jingdong}
+                                    </a>
+                                </i>
+                            </p>
+                            <p>
+                                <i>淘宝:</i>
+                                <i>
+                                    <a href={$info.web_taobao} target="_blank">
+                                        {$info.web_taobao}
+                                    </a>
+                                </i>
+                            </p>
+                            <p>
+                                <i>慧聪网:</i>
+                                <i>
+                                    <a href={$info.web_huicong} target="_blank">
+                                        {$info.web_huicong}
+                                    </a>
+                                </i>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="qr_code">
+                <ul>
+                    {volist name='code' id='va'}
+                    <li>
+                        <p>
+                            <img src="__STATIC__/uploads/{$va.img}" />
+                        </p>
+                        <p>{$va.name}</p>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

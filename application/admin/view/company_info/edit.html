@@ -1,0 +1,51 @@
+<meta charset="utf-8" />
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<link href="__STATIC__/css/editCompany.css" rel="stylesheet" type="text/css" />
+<form action="{:url('/admin/company_info/edit')}" method="POST" enctype="multipart/form-data">
+	<table style="width: 100%;">
+		{volist name ="company_info" id = "va"}
+		<tr>
+			<td style="width: 10%">京东店铺 :</td>
+			<td><input type="text" name="web_jingdong" value="{$va.web_jingdong}" required /></td>
+		</tr>
+		<tr>
+			<td style="width: 10%">淘宝店铺 :</td>
+			<td><input type="text" name="web_taobao" value="{$va.web_taobao}" required /></td>
+		</tr>
+		<tr>
+			<td style="width: 10%">慧聪店铺 :</td>
+			<td><input type="text" name="web_huicong" value="{$va.web_huicong}" required /></td>
+		</tr>
+		<tr>
+			<td style="width: 10%">联系电话1 :</td>
+			<td><input type="text" name="tel1" value="{$va.tel1}" required /></td>
+		</tr>
+		<tr>
+			<td style="width: 10%">联系电话2 :</td>
+			<td><input type="text" name="tel2" value="{$va.tel2}" required /></td>
+		</tr>
+		<tr>
+			<td style="width: 10%">地址1 :</td>
+			<td><input type="text" name="address1" value="{$va.address1}" required /></td>
+		</tr>
+		<tr>
+			<td style="width: 10%">地址2 :</td>
+			<td><input type="text" name="address2" value="{$va.address2}" required /></td>
+		</tr>
+		<tr>
+			<td class="tijiao"><input type="submit" value="修改" /><input type="reset" value="取消" /></td>
+		</tr>
+		{/volist}
+	</table>
+</form>
+<script type="text/javascript">
+		var file = document.getElementById("file");  
+        var text = document.getElementById("text");  
+        $("#fileSpan").click(function(){    
+            file.click();  
+        });  
+        file.onchange = type;
+        function type(){text.value = file.value;} 
+</script>
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>新	闻	列	表</h3>
+<table cellspacing="1">
+	<tr>
+		<th style="width:2%";>id</th>
+		<th style="width:10%">标题</th>
+		<th style="width:10%">图片</th>
+		<th style="width:8%">类型</th>
+		<th style="width:50%">简介</th>
+		<th style="width:10%">时间</th>
+		<th style="width:10%">操作</th>
+	</tr>
+	{volist name ='news' id='value'}
+	<tr>
+		<td>{$value.id}</td>
+		<td>{$value.title}</td>
+		<td><img src="__STATIC__/uploads/{$value.img}"></td>
+		<td>{$value.type}</td>
+		<td>{$value.intro}</td>
+		<td>{$value.time}</td>
+		<td><a href="{:url('news/editnews')}?id={$value.id}">修改</a>
+		<a href="{:url('news/delnews')}?id={$value.id}">删除</a></td>
+	</tr>
+	{/volist}
+</table>
+	<div class="page">
+		{$page}
+	</div>
+<div class="clear"></div>
+</body>
+</html>

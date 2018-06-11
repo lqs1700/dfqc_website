@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>帮助详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--国产浏览器的兼容-->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="__STATIC__/css/dfv_web.css"/>
+    <script type="text/javascript" src="__STATIC__/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/ReturnTop.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/dfv_web.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="homePage">
+    <div class="homePage_box">
+        <!--头部导航-->
+        {include file="public/header"}
+        <div id="help_center">
+            <!--1-->
+            <div class="head_advert">
+                <div class="advert_box"></div>
+            </div>
+            <!--2-->
+            <div class="hotSearch" id="help_detail">
+                <div class="Search_box">
+                    <div class="related_content">
+                        <div class="search_title">
+                            <p>
+                                <span>常见问题</span>
+                            </p>
+                        </div>
+                        <div class="option_con">
+                            <ul>
+                                {volist name='helps' id='val'}
+                                {if $val.label!=''}
+                                <li><a href="{:url('help_details/index')}?id={$val.id}#help_detail">{$val.label}</a></li>
+                                {/if}
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="help_detail">
+                <h3 class="help_name">{$help.name}</h3>
+                {$help.content}
+            </div>
+        </div>
+        <!--底部-->
+        {include file="public/footer"}
+    </div>
+</div>
+<!--返回顶部-->
+<div id="rocket-to-top">
+    <div class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+
+</body>
+</html>

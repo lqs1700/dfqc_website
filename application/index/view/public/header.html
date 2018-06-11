@@ -1,0 +1,26 @@
+<div class="container_nav">
+    <div class="topNav">
+        <div class="navBox">
+            <div class="left_logo">
+                <img src="__STATIC__/img/logo.png" />
+            </div>
+            <div class="right_ul_nav">
+                <ul>
+                    {volist name='nav0' id='val'}
+                        <li class="">
+                            <a href="{:url($val.url)}" {if $val.name==$title} class='active_border_color'{/if} class="a-navy a-border">{$val.name}</a>
+                            {volist name='nav1' id='va'}
+                                <div class="nav_check">
+                                    {if $val.id==$va.cid}
+                                    <a href="{:url($va.url)}#{$va.position}">{$va.name}</a>
+                                    {/if}
+                                </div>
+                            {/volist}
+                        </li>
+
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

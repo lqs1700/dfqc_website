@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<h3>服	务	列	表</h3>
+
+<table cellspacing="1">
+	<tr>
+		<th style="width:5%">id</th>
+		<th style="width:15%">名称</th>
+		<th style="width:10%">图标</th>
+		<th style="width:50%">内容</th>
+		<th style="width:10%">类型</th>
+		<th style="width:10%">操作</th>
+	</tr>
+
+	{volist name="service" id="value"}
+	<tr>
+		<td>{$value.id}</td>
+		<td>{$value.name}</td>
+		<td><img src="__STATIC__/uploads/<?php echo $value['img'];?>"></td>
+		<td>{$value.content}</td>
+		<td>{$value.type}</td>
+		<td>
+			<a href="{:url('editservice')}?id={$value.id}">修改</a>
+			<a href="{:url('delservice')}?id={$value.id}">删除</a>
+		</td>
+	</tr>
+	{/volist}
+</table>
+	<div class="page">
+		{$page}
+	</div><!--page end-->
+</body>
+</html>

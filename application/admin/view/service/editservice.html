@@ -1,0 +1,63 @@
+<meta charset="utf-8" />
+<link href="__STATIC__/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__STATIC__/umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/umeditor/third-party/template.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/umeditor.min.js"></script>
+<link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
+
+<form action="{:url('editService')}?id={$id}" method="POST" enctype="multipart/form-data">
+    <table style="width: 100%;">
+        {volist name ='service' id = 'value'}
+        <tr>
+            <td>服务名称：</td>
+            <td><input value={$value.name} type="text" name="name" required /></td>
+        </tr>
+
+        <tr>
+            <td>服务类型：</td>
+            <td>
+                <select name="s_type">
+                    <?php foreach($service_type as $val):?>
+                    <option value="<?php echo $val['id'];?>" <?php if($value['s_type'] ==$val['id']){echo 'selected';}?>><?php echo $val['name'];?></option>
+                    <?php endforeach;?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>产品图片：</td>
+            <td><input type="file" name="image" id="file" class="image" style="opacity: 0"/>
+                <input value={$value.img} type="text" style="width: 215px;height:28px;position: relative;right: 258px;" id="text" class="filetext"/>
+                <button id="fileSpan" type="button" class="xiugaibtn" style="position: relative;right: 263px;height:28px;top:1px;">修改</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>服务内容：</td>
+            <td>
+                <textarea id="myEditor" name="content" style="width:1000px;height:300px;line-height: 30px;">{$value.content}</textarea>
+            <td>
+        </tr>
+
+        <tr>
+            <td class="tijiao"><input type="submit" value="确认" /><input type="reset" value="取消" /></td>
+        </tr>
+        {/volist}
+    </table>
+</form>
+<script type="text/javascript">
+    //实例化编辑器
+    var um = UM.getEditor('myEditor');
+
+</script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript">
+    var file = document.getElementById("file");
+    var text = document.getElementById("text");
+    $("#fileSpan").click(function(){
+        file.click();
+    });
+    file.onchange = type;
+    function type(){text.value = file.value;}
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--国产浏览器的兼容-->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="__STATIC__/css/animate-tool.css"/>
+    <link type="text/css" rel="stylesheet" href="__STATIC__/css/dfv_web.css"/>
+    <script type="text/javascript" src="__STATIC__/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/ReturnTop.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/dfv_web.js"></script>
+</head>
+<body>
+<div id="homePage">
+    <div class="homePage_box">
+        <!--头部导航-->
+        {include file="public/header"}
+
+        <!--内容-->
+        <div class="news">
+            <div class="news_content">
+                <!--1-->
+                <div class="top_title_img">
+                    <div class="bg">
+                    </div>
+                </div>
+
+                <!--2-->
+                <div class="newsDetail" id="one">
+                    <div class="Detail_box">
+                        <h3>{$new.title}</h3>
+                        <div class="TextBox">
+                            {$new.content}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--底部-->
+        {include file="public/footer"}
+    </div>
+</div>
+
+<!--返回顶部-->
+<div id="rocket-to-top">
+    <div class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+
+</body>
+</html>

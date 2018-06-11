@@ -1,0 +1,30 @@
+<meta charset="utf-8" />
+<link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
+<form action="{:url('edit')}?id={$site.id}" method="POST" enctype="multipart/form-data">
+    <table style="width: 35%;">
+        <tr>
+            <td>网点名称：</td>
+            <td><input type="text" name="name" required value={$site.name} /></td>
+        </tr>
+
+        <tr>
+            <td>网点地址：</td>
+            <td><input type="text" name="address" required value={$site.address} /></td>
+        </tr>
+
+        <tr>
+            <td>电话：</td>
+            <td><input type="text" name="tel" required value={$site.tel} /></td>
+        </tr>
+
+        <tr>
+            <td>级别：</td>
+            <td><input type="text" name="cid" value={$site.cid} /></td>
+        </tr>
+
+        <tr>
+            <td class="tijiao"><input type="submit" value="修改" /><input type="reset" value="取消" /></td>
+        </tr>
+    </table>
+</form>
+

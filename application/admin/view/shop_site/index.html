@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<h3>网  点	列	表</h3>
+
+<table cellspacing="1">
+    <tr>
+        <th style="width:5%">id</th>
+        <th style="width:10%">名称</th>
+        <th style="width:40%">地址</th>
+        <th style="width:10%">联系人</th>
+        <th style="width:15%">电话</th>
+        <th style="width:10%">分类</th>
+        <th style="width:10%">操作</th>
+    </tr>
+
+    {volist name="sites" id="value"}
+    <tr>
+        <td>{$value.id}</td>
+        <td>{$value.name}</td>
+        <td>{$value.address}</td>
+        <td>{$value.contact_person}</td>
+        <td>{$value.tel}</td>
+        <td>{$value.cid}</td>
+        <td>
+            <a href="{:url('edit')}?id={$value.id}">修改</a>
+            <a href="{:url('del')}?id={$value.id}">删除</a>
+        </td>
+    </tr>
+    {/volist}
+</table>
+<div class="page">
+    {$page}
+</div><!--page end-->
+</body>
+</html>
